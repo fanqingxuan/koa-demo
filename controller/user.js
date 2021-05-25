@@ -3,22 +3,35 @@ const userService = require("../service/user");
 const logger = require("../core/log").logger;
 const md5 = require("md5");
 const redis = require("../core/redis");
+const Koa = require("koa");// eslint-disable-line
 
 const user = {
+    /**
+     * @param {Koa.Context} ctx
+     */
     async index(ctx) {
         ctx.body = response_util.success("this is user index page");
     },
 
+    /**
+     * @param {Koa.Context} ctx
+     */
     async list(ctx) {
         ctx.body = response_util.success("this is user list page");
     },
 
+    /**
+     * @param {Koa.Context} ctx
+     */
     async create(ctx) {
         const user = ctx.request.body;
         const data = await userService.create(user);
         ctx.body = response_util.success(data);
     },
 
+    /**
+     * @param {Koa.Context} ctx
+     */
     async login(ctx) {
         logger.info("请求信息", ctx.request.body);
 

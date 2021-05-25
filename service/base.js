@@ -3,11 +3,13 @@ const sequelize = require("../core/db");
 const logger = require("../core/log").logger;
 
 class BaseService {
-    models = {};
-    logger = null;
+
+
     constructor() {
         let models = initModels(sequelize);
+        
         this.models = models;
+
         this.logger = logger;
     }
 }

@@ -9,7 +9,7 @@ class UserService extends BaseService {
         this.logger.debug("findAll", "这是findAll");
         const list = await this.models.User.findAll();
         this.logger.info("findAll", list);
-
+        this.logger.error("error",list);
         return list;
     }
 
